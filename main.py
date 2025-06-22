@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Self-Improving Media-to-Text Intelligence Core
-Gödel Machine-inspired architecture with LangGraph multi-agent system
+Darwin Gödel Machine-inspired architecture with LangGraph multi-agent system
 """
 
 import os
