@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Self-Improving Media-to-Text Intelligence Core
-Darwin Gödel Machine-inspired architecture with LangGraph multi-agent system
+Gödel Machine-inspired architecture with LangGraph multi-agent system
 """
 
 import os
@@ -28,14 +28,10 @@ try:
     import magic
 except ImportError as e:
     print(f"Missing dependency: {e}")
-    print("Install with: pip install pdfplumber pypdf python-docx openai-whisper moviepy python-magic")
 
-# LLM dependencies (assuming OpenAI for evaluation)
-try:
-    import openai
-except ImportError:
-    print("Install OpenAI: pip install openai")
-
+# LLM dependencies (could use groq)
+import openai
+    
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -394,8 +390,7 @@ class SelfEvaluatorAgent:
         - Absence of OCR errors or garbled text
         - Proper formatting and structure
         
-        Respond with only a number between 0.0 and 1.0.
-        """
+        Respond with only a number between 0.0 and 1.0. """
         
         response = self.openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -411,7 +406,7 @@ class SelfEvaluatorAgent:
             return 0.5  # Default score if parsing fails
 
 class ProposerAgent:
-    """Proposes improvements to the extraction system"""
+    #Proposes improvements to the extraction system
     
     def __init__(self):
         self.improvement_strategies = {
@@ -769,7 +764,7 @@ def process_input_folder():
             print(f"ERROR: {str(e)}")
             results.append({'success': False, 'error': str(e), 'file': file_path.name})
         
-        print()  # Empty line between files
+        print() 
     
     # Summary statistics
     print("PROCESSING SUMMARY")
@@ -814,7 +809,6 @@ if __name__ == "__main__":
         print("All media processing dependencies are available.")
     except ImportError as e:
         print(f"Missing dependency: {e}")
-        print("Install with: pip install pdfplumber pypdf python-docx openai-whisper moviepy python-magic")
     
     # Process the input folder
     process_input_folder()
