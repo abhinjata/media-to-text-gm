@@ -10,3 +10,5 @@ Agents found:
 1) MediaTypeDetectorAgent, 2) TextExtractorAgent, 3) AudioTranscriberAgent, 4) VideoToAudioAgent, 5) UnifiedTextFormatterAgent, 6) SelfEvaluatorAgent, 7) ProposerAgent, 8) VerifierAgent
 
 Allowing these agents to live inside their own nodes allows us to implement graphs as we usually would and have for decades, and this would also allow for a self-referential structure that is required for the self-improving recursive autonomous architecutre of the program.
+
+References: https://arxiv.org/pdf/2505.22954
